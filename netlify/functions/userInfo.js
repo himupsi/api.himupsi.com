@@ -21,7 +21,8 @@ exports.handler = async function (event, context) {
     }
 
 
-    const authId = '123123123';
+    const cookies = cookie.parse(event.headers.cookie || '');
+    const authId = cookies['HIM_AUTH'];
     const userId = userInfos.authIdUserMap[authId];
 
     if (authId === null || userId === undefined) {
