@@ -6,6 +6,10 @@ exports.users = {
     }
 }
 
-exports.sessionMap = {
+exports.authIdUserMap = {
     123123123: 'himupsi'
+}
+
+exports.userAuthIdMap = {
+    himupsi: '123123123'
 }

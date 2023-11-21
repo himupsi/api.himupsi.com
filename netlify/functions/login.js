@@ -26,14 +26,13 @@ exports.handler = async function (event, context) {
         };
     }
 
-    const sessionId = userInfos.sessionMap[id];
+    const authId = userInfos.userAuthIdMap[id];
 
 
-    const myCookie = cookie.serialize('HIMUPSI_AUTH', sessionId, {
+    const myCookie = cookie.serialize('HIMUPSI_AUTH', authId, {
         secure: true,
         httpOnly: true,
         domain: '.himupsi.com',
-        maxAge: 86400000,
       })
 
     return {
