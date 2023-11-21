@@ -26,7 +26,7 @@ exports.handler = async function (event, context) {
     if (authId === null || userId === undefined) {
         return {
             statusCode: 401,
-            body: JSON.stringify({ message: '로그인되지 않았습니다.' }),
+            body: JSON.stringify({ message: '로그인되지 않았습니다.', test: event.headers?.cookies }),
             headers: CORS_HEADERS,
         };
     }
