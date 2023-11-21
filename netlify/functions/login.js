@@ -39,6 +39,7 @@ exports.handler = async function (event, context) {
     return {
         statusCode: 200,
         body: JSON.stringify(JSON.stringify(user)),
-        setCookies: [myCookie]
+        setCookies: [myCookie],
+        headers: CORS_HEADERS,
     };
 };
