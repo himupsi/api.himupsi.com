@@ -19,9 +19,8 @@ exports.handler = async function (event, context) {
         }
     }
 
-    const cookies = cookie.parse(event.headers?.cookies || '');
 
-    const authId = cookies['HIM_AUTH'] || null;
+    const authId = '123123123';
     const userId = userInfos.authIdUserMap[authId];
 
     if (authId === null || userId === undefined) {
