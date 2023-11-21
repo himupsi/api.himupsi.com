@@ -18,9 +18,9 @@ exports.handler = async function (event, context) {
 
     const data = JSON.parse(event.body) || {}
     const { id, password } = data;
-    const user = userInfos.users[id];
+    const userInfo = userInfos.users[id];
 
-    if (!user || user.password !== password) {
+    if (!userInfo || userInfo.password !== password) {
         return {
             statusCode: 401,
             body: JSON.stringify({ message: '아이디가 존재하지 않습니다.' })
@@ -38,7 +38,10 @@ exports.handler = async function (event, context) {
 
     return {
         statusCode: 200,
-        body: JSON.stringify(JSON.stringify(user)),
+        body: JSON.stringify({
+            name,
+            avatar,
+        }),
         headers: {
             'Set-Cookie': myCookie,
             'Content-Type': 'application/json',
