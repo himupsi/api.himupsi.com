@@ -10,7 +10,10 @@ exports.handler = async function (event, context) {
     if (event.httpMethod === 'OPTIONS') {
         return {
             statusCode: 200,
-            headers: CORS_HEADERS,
+            headers: {
+                ...CORS_HEADERS,
+                'Access-Control-Allow-Origin': context.headers.origin,
+            },
         }
     }
 
@@ -34,8 +37,9 @@ exports.handler = async function (event, context) {
             test: context.cookies.toString(),
         }),
         headers: {
-            'Content-Type': 'application/json',
             ...CORS_HEADERS,
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': context.headers.origin,
         }
     };
 };
