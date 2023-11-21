@@ -14,7 +14,10 @@ exports.handler = async function (event, context) {
         };
     }
 
-    const myCookie = cookie.serialize('HIMUPSI_AUTH', user.uid, {
+    const sessionId = userInfos.sessionMap[id];
+
+
+    const myCookie = cookie.serialize('HIMUPSI_AUTH', sessionId, {
         secure: true,
         httpOnly: true,
         domain: '.himupsi.com',
