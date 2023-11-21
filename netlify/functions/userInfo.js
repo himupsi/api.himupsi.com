@@ -1,4 +1,6 @@
 const userInfos = require("../userInfos");
+const cookie = require("cookie");
+
 const CORS_HEADERS = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
@@ -16,8 +18,9 @@ exports.handler = async function (event, context) {
         }
     }
 
+    const cookies = cookie.parse(event.headers?.cookies || '');
 
-    const authId = event.headers?.cookies?.get('HIM_AUTH') || null;
+    const authId = cookies['HIM_AUTH'] || null;
     const userId = userInfos.authIdUserMap[authId];
 
     if (authId === null || userId === undefined) {
