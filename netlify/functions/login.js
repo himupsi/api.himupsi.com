@@ -30,7 +30,7 @@ exports.handler = async function (event, context) {
     const authId = userInfos.userAuthIdMap[id];
 
 
-    const myCookie = cookie.serialize('HIMUPSI_AUTH', authId, {
+    const myCookie = cookie.serialize('HIM_AUTH', authId, {
         httpOnly: true,
         domain: '.himupsi.com',
         path: '/',
