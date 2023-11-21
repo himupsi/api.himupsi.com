@@ -1,7 +1,7 @@
 const userInfos = require("../userInfos");
 const cookie = require('cookie')
 const CORS_HEADERS = {
-    'Access-Control-Allow-Origin': '*.himupsi.com',
+    'Access-Control-Allow-Origin': 'https://id.himupsi.com',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
     'Aceess-Control-Max-Age': '86400',
