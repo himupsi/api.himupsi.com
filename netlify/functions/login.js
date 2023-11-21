@@ -1,10 +1,22 @@
 const userInfos = require("../userInfos");
 const cookie = require('cookie')
+const CORS_HEADERS = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+    'Aceess-Control-Max-Age': '86400'
+}
 
 exports.handler = async function (event, context) {
+    if (event.httpMethod === 'OPTIONS') {
+        return {
+            statusCode: 200,
+            headers: CORS_HEADERS,
+        }
+    }
+
     const data = JSON.parse(event.body) || {}
     const { id, password } = data;
-
     const user = userInfos.users[id];
 
     if (!user || user.password !== password) {
