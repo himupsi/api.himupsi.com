@@ -17,7 +17,7 @@ exports.handler = async function (event, context) {
         }
     }
 
-    const authId = context.cookies.get('HIM_AUTH');
+    const authId = context.cookies?.get('HIM_AUTH') || null;
     const userId = userInfos.authIdUserMap[authId];
 
     if (authId === null || userId === undefined) {
