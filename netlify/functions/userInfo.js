@@ -12,12 +12,12 @@ exports.handler = async function (event, context) {
             statusCode: 200,
             headers: {
                 ...CORS_HEADERS,
-                'Access-Control-Allow-Origin': context.headers.origin,
             },
         }
     }
 
-    const authId = context.cookies?.get('HIM_AUTH') || null;
+
+    const authId = event.headers?.cookies?.get('HIM_AUTH') || null;
     const userId = userInfos.authIdUserMap[authId];
 
     if (authId === null || userId === undefined) {
@@ -37,7 +37,6 @@ exports.handler = async function (event, context) {
         headers: {
             ...CORS_HEADERS,
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': context.headers.origin,
         }
     };
 };
