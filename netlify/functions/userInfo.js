@@ -1,10 +1,9 @@
 const userInfos = require("../userInfos");
 const CORS_HEADERS = {
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': '*.himupsi.com',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
     'Aceess-Control-Max-Age': '86400',
-    'Access-Control-Allow-Credentials': 'true',
 }
 
 exports.handler = async function (event, context) {
