@@ -15,6 +15,7 @@ exports.handler = async function (event, context) {
             statusCode: 200,
             headers: {
                 ...CORS_HEADERS,
+                'Access-Control-Allow-Origin': event.headers.origin,
             },
         }
     }
@@ -27,7 +28,11 @@ exports.handler = async function (event, context) {
         return {
             statusCode: 401,
             body: JSON.stringify({ message: '로그인되지 않았습니다.' + JSON.stringify(event.headers)}),
-            headers: CORS_HEADERS,
+            headers: {
+                ...CORS_HEADERS,
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': event.headers.origin,
+            },
         };
     }
     const { name, avatar } = userInfos.users[userId] || {};
@@ -40,6 +45,7 @@ exports.handler = async function (event, context) {
         headers: {
             ...CORS_HEADERS,
             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': event.headers.origin,
         }
     };
 };
