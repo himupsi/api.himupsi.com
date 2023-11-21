@@ -17,8 +17,7 @@ exports.handler = async function (event, context) {
         }
     }
 
-    // const authId = context.cookies.get('HIM_AUTH');
-    const authId = '123123123'
+    const authId = context.cookies.get('HIM_AUTH');
     const userId = userInfos.authIdUserMap[authId];
 
     if (authId === null || userId === undefined) {
@@ -34,7 +33,6 @@ exports.handler = async function (event, context) {
         body: JSON.stringify({
             name,
             avatar,
-            test: context.cookies.toString(),
         }),
         headers: {
             ...CORS_HEADERS,
