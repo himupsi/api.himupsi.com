@@ -1,7 +1,7 @@
 exports.users = {
     himupsi: {
         password: '1234',
-        name: '유영재',
+        name: '힘업시',
         avatar: 'https://himupsi.com/images/profile1.png',
     }
 }
