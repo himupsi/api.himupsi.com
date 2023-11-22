@@ -35,7 +35,7 @@ exports.handler = async function (event, context) {
         domain: '.himupsi.com',
         path: '/',
       });
-    const { name, avatar } = userInfos.users[userId] || {};
+    const { name, avatar } = userInfo;
     return {
         statusCode: 200,
         body: JSON.stringify({
