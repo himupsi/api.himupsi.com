@@ -19,8 +19,6 @@ exports.handler = async function (event, context) {
             },
         }
     }
-
-
     const cookies = cookie.parse(event.headers.cookie || '');
     const authId = cookies['HIM_AUTH'];
     const userId = userInfos.authIdUserMap[authId];
