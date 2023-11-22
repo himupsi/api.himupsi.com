@@ -34,6 +34,7 @@ exports.handler = async function (event, context) {
         httpOnly: true,
         domain: '.himupsi.com',
         path: '/',
+        secure: true,
       })
 
     return {
